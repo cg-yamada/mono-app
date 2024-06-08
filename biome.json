@@ -12,6 +12,9 @@
         "noUnusedImports": "error",
         "noUnusedVariables": "error",
         "useHookAtTopLevel": "error"
+      },
+      "style": {
+        "useImportType": "off"
       }
     }
   },

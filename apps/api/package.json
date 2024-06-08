@@ -1,8 +1,6 @@
 {
-  "name": "nestjs-boilerplate",
+  "name": "api",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -12,7 +10,7 @@
     "start": "nest start",
     "prod": "node dist/main",
     "lint": "tsc && pnpm biome lint ./src",
-    "fmt": "pnpm biome format --write ./src",
+    "fmt": "biome format --write ./src",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -31,7 +29,6 @@
     "rxjs": "^7.2.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.7.3",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",

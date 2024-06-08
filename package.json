@@ -1,15 +1,21 @@
 {
   "name": "mono-app",
   "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev"
-  },
-  "devDependencies": {
-    "turbo": "latest"
-  },
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "fmt": "turbo fmt",
+    "api": "openapi-typescript ./schema.json --output ./apps/web/src/services/api.d.ts"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "@biomejs/biome": "1.6.0",
+    "openapi-typescript": "6.7.5"
+  },
+  "workspaces": ["packages/*", "apps/*"]
 }
