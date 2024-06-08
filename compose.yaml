@@ -5,7 +5,7 @@ services:
     container_name: apidoc
     image: swaggerapi/swagger-ui
     volumes:
-      - ./schema.json:/usr/share/nginx/html/openapi.json
+      - ./openapi.json:/usr/share/nginx/html/openapi.json
     environment:
       API_URL: openapi.json
     ports:

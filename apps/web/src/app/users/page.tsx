@@ -1,6 +1,6 @@
-import { companyService } from "@/services/companyService"
+import { userService } from "@/services/userService"
 import type { Metadata } from "next/types"
-import { CompaniesContainer } from "./container"
+import { UsersContainer } from "./container"
 
 /**
  * デフォルトは静的レンダリングであり、mockサーバーがローカルのみなので動的レンダリングを指定しています
@@ -9,16 +9,16 @@ import { CompaniesContainer } from "./container"
 export const dynamic: NextJS["dynamic"] = "force-dynamic"
 
 export const metadata: Metadata = {
-  title: "企業情報",
-  description: "企業情報",
+  title: "ユーザー情報",
+  description: "ユーザー情報",
 }
 
-export default async function CompaniesPage() {
-  const companies = await companyService.getAll()
+export default async function Page() {
+  const users = await userService.getAll()
 
   return (
     <>
-      <CompaniesContainer companies={companies} />
+      <UsersContainer users={users} />
     </>
   )
 }

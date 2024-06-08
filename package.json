@@ -12,12 +12,12 @@
     "api": "turbo dev --filter=api",
     "lint": "turbo lint",
     "fmt": "turbo fmt",
-    "schema": "openapi-typescript ./schema.json --output ./apps/web/src/services/api.d.ts"
+    "gen": "openapi-typescript ./openapi.json --output ./apps/web/src/services/api.d.ts"
   },
   "devDependencies": {
     "turbo": "latest",
     "@biomejs/biome": "1.6.0",
     "openapi-typescript": "6.7.5"
   },
-  "workspaces": ["packages/*", "apps/*"]
+  "workspaces": ["apps/*"]
 }

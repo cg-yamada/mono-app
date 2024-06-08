@@ -1,4 +1,4 @@
-import type { Pokemon } from "@/models/pokemon"
+import { Pokemon } from "@/services/pokemonService/types"
 import { Card, CardSection, Grid, GridCol, Image, Text } from "@mantine/core"
 import Link from "next/link"
 

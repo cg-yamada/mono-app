@@ -11,16 +11,16 @@
     }
   ],
   "paths": {
-    "/companies": {
+    "/users": {
       "get": {
-        "summary": "企業情報を全件取得する",
+        "summary": "ユーザー情報を全件取得する",
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/getAllCompaniesResponse"
+                  "$ref": "#/components/schemas/getAllUsersResponse"
                 }
               }
             }
@@ -37,13 +37,13 @@
   },
   "components": {
     "schemas": {
-      "getAllCompaniesResponse": {
+      "getAllUsersResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Company"
+          "$ref": "#/components/schemas/User"
         }
       },
-      "Company": {
+      "User": {
         "type": "object",
         "required": ["id", "name", "email"],
         "properties": {
@@ -53,7 +53,7 @@
           },
           "name": {
             "type": "string",
-            "title": "企業名"
+            "title": "ユーザー名"
           },
           "email": {
             "type": "string",

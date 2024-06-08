@@ -31,6 +31,9 @@
       "semicolons": "asNeeded",
       "quoteStyle": "double",
       "jsxQuoteStyle": "double"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
   "json": {

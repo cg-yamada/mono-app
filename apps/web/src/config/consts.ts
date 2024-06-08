@@ -3,7 +3,7 @@ export const APP_TITLE = "sample"
 export const Routes = {
   HOME: "/",
   POKEMONS: "/pokemons",
-  COMPANIES: "/companies",
+  USERS: "/users",
 } as const
 
 export const Images = {

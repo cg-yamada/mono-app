@@ -1,5 +1,5 @@
-import type { Pokemon } from "@/models/pokemon"
-import { BaseService } from "./baseService"
+import { BaseService } from "../baseService"
+import { Pokemon } from "./types"
 
 interface GetPokemonsResponse {
   results: {

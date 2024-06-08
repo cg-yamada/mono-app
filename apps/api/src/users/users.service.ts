@@ -4,6 +4,6 @@ import type { User } from "./user.model"
 @Injectable()
 export class UsersService {
   findAll(): User[] {
-    return []
+    return [{ id: "1", name: "テスト太郎", email: "test@gmail.com" }]
   }
 }

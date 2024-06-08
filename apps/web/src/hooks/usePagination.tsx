@@ -9,7 +9,7 @@ export const usePagination = <T,>(items: T[], perPage: number) => {
   // ページネーション分割
   const newItemsList = Array.from({ length: Math.ceil(items.length / perPage) }, (_, i) => items.slice(i * perPage, i * perPage + perPage))
   // 現在のアイテム一覧
-  const currentItems = newItemsList[currentPage - 1]
+  const currentItems = newItemsList.length > 0 ? newItemsList[currentPage - 1] : []
 
   return {
     currentItems,
