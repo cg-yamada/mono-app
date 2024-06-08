@@ -8,9 +8,11 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "web": "turbo dev --filter=web",
+    "api": "turbo dev --filter=api",
     "lint": "turbo lint",
     "fmt": "turbo fmt",
-    "api": "openapi-typescript ./schema.json --output ./apps/web/src/services/api.d.ts"
+    "schema": "openapi-typescript ./schema.json --output ./apps/web/src/services/api.d.ts"
   },
   "devDependencies": {
     "turbo": "latest",
