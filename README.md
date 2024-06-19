@@ -1,12 +1,12 @@
-# next-boilerplate
+# mono-app
 
 ## Product Infomation
 
-| environment | URL                           |
-| ----------- | ----------------------------- |
-| Production  | https://sample.vercel.app     |
-| Staging     | https://sample-stg.vercel.app |
-| Development | https://sample-dev.vercel.app |
+| environment | URL |
+| ----------- | --- |
+| Production  | -   |
+| Staging     | -   |
+| Development | -   |
 
 ## Using Technologies
 
