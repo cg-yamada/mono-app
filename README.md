@@ -13,7 +13,8 @@
 
 | Category       | Library                     | Description |
 | -------------- | --------------------------- | ----------- |
-| Frameworks     | TypeScript NextJS MantineUI | -           |
+| Frontend       | TypeScript NextJS MantineUI | -           |
+| Backend        | TypeScript NestJS           | -           |
 | Testing        | Vitest TestingLibrary       | -           |
 | Linter         | Biome                       | -           |
 | Edge           | Vercel EdgeConfig           | -           |
@@ -32,7 +33,7 @@
 
 ```shell:
 $ pnpm install
-$ pnpm dev
+$ pnpm dev # turborepoによりフロント・サーバーの両方が起動
 ```
 
 ## Trouble shooting
