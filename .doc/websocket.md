@@ -61,3 +61,8 @@ sequenceDiagram
 - 昔はHTTPのロングポーリングを利用して上記を再現していた。
   - ポーリングとは、一定間隔でサーバーからリクエストを行う。
   - ロングポーリングとは、データが更新されたらサーバーからリクエストを行う。
+
+## websocket機能実装の参考URL
+
+- https://zenn.dev/mfunyu/books/ft_transcendence/viewer/websocket2
+- https://qiita.com/tamakiiii/items/35a8bfd8bf75b1746eaf
