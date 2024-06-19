@@ -1,4 +1,18 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "projects": {
+    "messages": {
+      "type": "library",
+      "root": "libs/messages",
+      "entryFile": "index",
+      "sourceRoot": "libs/messages/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/messages/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
 }

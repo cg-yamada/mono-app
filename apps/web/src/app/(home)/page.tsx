@@ -1,42 +1,71 @@
 "use client"
 
-import { Button, Container, FileInput, Group } from "@mantine/core"
-import { type FormEvent, useState } from "react"
+import { Box, Button, Container, Group, List, ListItem, Text, Textarea } from "@mantine/core"
+import { useForm, zodResolver } from "@mantine/form"
+import { useState } from "react"
+import io from "socket.io-client"
+import { z } from "zod"
+
+export const formSchema = z.object({
+  message: z.string(),
+})
+
+interface Chat {
+  id: string
+  userId: string
+  message: string
+}
+
+interface Input {
+  userId: string
+  message: string
+}
+
+const socket = io(process.env.NEXT_PUBLIC_API_URL)
 
 export default function RootPage() {
-  const [file, setFile] = useState<File | null>(null)
+  const form = useForm<Input>({
+    validate: zodResolver(formSchema),
+    initialValues: {
+      message: "",
+      userId: "1234",
+    },
+  })
 
-  const handleChange = async (newFile: File | null) => {
-    setFile(newFile)
-  }
+  const [receivedChat, setReceivedChat] = useState<Chat[]>([])
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (!file) return
+  /** サーバーから受信する */
+  socket.on("sendMessage", (recieved: Chat) => {
+    console.log("recieved >>>", recieved)
+    const newChat = [...receivedChat, recieved]
+    setReceivedChat(newChat)
+  })
 
-    try {
-      const url = "https://upload.com"
-      const body = new FormData()
-      body.append("file", file)
-
-      const res = await fetch(url, { body, method: "PUT", headers: { "Content-Type": file.type } })
-      if (!res.ok) throw Error("アップロードに失敗しました")
-
-      alert("アップロード成功！")
-    } catch (error) {
-      console.error(error)
-      alert("アップロード失敗。。。")
-    }
+  /** サーバーに送信する */
+  const handleSubmit = async (input: Input) => {
+    socket.emit("newMessage", input)
   }
 
   return (
     <Container py={40}>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={form.onSubmit(handleSubmit)} noValidate>
         <Group mb={20}>
-          <FileInput miw="400px" onChange={handleChange} />
+          <Textarea w={400} {...form.getInputProps("message")} label="メッセージ" />
         </Group>
-        <Button type="submit" children="アップロードする" />
+        <Button type="submit" children="送信する" />
       </form>
+
+      <Box mt={40}>
+        <Text>Websocketによる送信結果</Text>
+        <List listStyleType="none">
+          {receivedChat.map((chat) => (
+            <ListItem key={chat.id}>
+              <Text>{`userId: ${chat.userId}`}</Text>
+              <Text>{`メッセージ: ${chat.message}`}</Text>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </Container>
   )
 }
